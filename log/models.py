@@ -47,6 +47,40 @@ class LogStudent(models.Model):
     #學生新社團
     newclub = models.CharField('原社團', max_length=10)
 
+class LogTeacher(models.Model):
+    #身分
+    SET_OPTIONS = [
+    (0, '社長'),
+    (1, '社團指導教師'),
+    (2, '教務處人員'),
+    (3, '管理員'),
+    ]
+    #姓名
+    subject_teacher = models.CharField('姓名', max_length=10)
+    #身分
+    status_teacher = models.IntegerField(
+              '身分', 
+              default=0, 
+              choices=SET_OPTIONS
+           )
+    #社團
+    clubdate = models.CharField('社團', max_length=10)
+
+
+class LogClub(models.Model):
+    #社團
+    club = models.CharField('社團名稱', max_length=10)
+    #社團指導老師
+    club_teacher = models.CharField('指導老師', max_length=10)
+    #社團上限人數
+    club_person = models.CharField('社團上限人數', max_length=10)
+    #社團目前人數
+    club_now_person = models.CharField('社團目前人數', max_length=10)
+
+    
+
+
+    
 
 
 
